@@ -1,0 +1,32 @@
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);	
+		
+		int N = sc.nextInt();		
+		String[] arr = new String[N];
+
+		
+		for(int i = 0; i<N; i++) {
+			arr[i] = sc.next();
+			int sum = 0;
+			int cnt = 0;
+			for(int j = 0; j<arr[i].length(); j++) {
+				if(arr[i].charAt(j)=='O') {
+					cnt++;
+					sum += cnt;
+				}else {
+					cnt = 0;
+				}
+			}
+			System.out.println(sum);
+		}
+
+	}		
+}
+//배열 N개에 문자열을 집어넣고
+//for문으로 돌려서 문자가 O이면 축적
+//X면 0으로 초기화
