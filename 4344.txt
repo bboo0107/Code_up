@@ -1,0 +1,38 @@
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);	
+		
+		int C = sc.nextInt(); //케이스 수
+		int N; //학생수 
+		
+		double avg = 0; //평균 점수
+
+		int[] arr = new int[1000];
+		
+		for(int i = 0; i<C; i++) {
+			N = sc.nextInt();
+			double sum = 0; // 성적 합계
+			int stu_cnt = 0; // 평균 넘는 학생 수
+			// 성적 합계와 평균넘는 학생 수 는 한번 돌때마다 초기화 해줘야함!
+			
+			for(int j = 0; j<N; j++) {
+				arr[j] = sc.nextInt(); // 점수 넣어주기
+				sum += arr[j]; // 점수 합계 구하기
+			}
+			avg = sum/N; //평균
+			
+			for(int j = 0; j<N; j++) {
+				if(arr[j]>avg){ // 평균보다 점수가 클 때
+					stu_cnt++; // 평균 넘는 학생 수 올려주기
+				}
+			}
+			System.out.printf("%.3f", 100.0 * stu_cnt / N); //셋째자리까지 출력
+            System.out.println("%");
+		}
+
+	}		
+}
