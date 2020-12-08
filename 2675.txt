@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int T = sc.nextInt(); //테스트 케이스 갯수
+		
+		for(int i = 0; i < T; i++) { //테스트 케이스 갯수만큼 반복
+			int R = sc.nextInt(); //반복횟수
+			String S = sc.next(); //문자열 
+			//nextline()은 엔터값을 입력받을 때까지 기준으로 한줄을 읽는다.
+			//그래서 3 ABC 했을 경우 AAABBBCCC*** 3번의 공백이 포함된다.
+			
+			for(int j = 0; j < S.length(); j++) { // 문자열 길이만큼 반복 
+				for(int k = 0; k < R; k++) { //반복횟수만큼 반복
+					System.out.print(S.charAt(j));
+				}
+			}
+			System.out.println();
+		}
+
+	}
+
+}
+​
