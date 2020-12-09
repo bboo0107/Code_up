@@ -1,0 +1,30 @@
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int N = sc.nextInt(); 
+		int cnt = 0; //한수
+		
+		if(N<100) {
+			cnt = N; //99까지는 모두 등차수열,한수 이다(두 수의 차가 1만 있어도)
+		}else{
+			cnt = 99; //99로 초기화
+			for(int i = 100; i<=N; i++) { //100부터
+				int hun = i/100; //백의자리
+				int ten = (i/10)%10; //십의자리
+				int one = i%10; //일의자리
+				
+				if((hun-ten)==(ten-one)) { //차가 같으면 등차수열,한수
+					cnt++;
+				}
+				
+			}
+		}
+		System.out.println(cnt);
+		
+
+	}
+
+}
