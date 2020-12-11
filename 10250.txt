@@ -1,0 +1,22 @@
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int T = sc.nextInt(); //테스트케이스
+		for(int i = 0; i < T; i++) {
+		int H = sc.nextInt(); //H층짜리 호텔
+		int W = sc.nextInt(); //W개의  방
+		int N = sc.nextInt(); //N번째 손님
+		int F = N%H; //층
+		int R = N/H+1; //호
+		if(F == 0) {
+			F = H; //꼭대기층
+			R = N/H; 
+		}
+		System.out.println(F*100+R);
+		}
+	}
+
+}
