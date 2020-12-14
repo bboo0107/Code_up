@@ -1,0 +1,46 @@
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int N = sc.nextInt(); //N장의 카드
+		int M = sc.nextInt(); //딜러가 외치는 수
+		int max = 0; //최대값?
+		
+		int[] arr = new int[N];
+		
+		for(int i = 0; i<N; i++) {
+			arr[i] = sc.nextInt();
+		}
+		
+		for(int i = 0; i<N; i++) { 
+			for(int j = i+1; j<N; j++) {
+				for(int k = j+1; k<N; k++) {
+					int sum = arr[i]+arr[j]+arr[k];
+					if(sum<M) {
+						max = Math.max(max, sum);
+					}
+					if(sum == M) {
+						max = sum;
+					}
+				}
+			}
+		}
+		System.out.println(max);
+	
+	}
+
+}
+
+//브루트포스 문제
+//브루트포스란? 조합 가능한 모든 문자열을 하나씩 대입해 보는 방식으로 문제를 푸는 것인데, 
+//얼핏 무식하다고 생각할 수도 있겠지만 성공한다는 가정 하에 항상 정확도 100%를 보장한다는 점에서, 
+//자원만 충분하면 가장 무서운 방법이다. 이론적으로 가능한 모든 경우의 수를 다 검색해 보는 것이라 정확도 100%가 항상 보장되니, 
+//암호학에서는 가장 확실한 방법으로 통용되고 있다. 
+//무엇보다도 암호 확인 작업이라는 것이 손으로 입력한 문자열의 동일 여부를 확인하는 것이기 때문에, 
+//가능한 경우를 하나씩 대입하다 보면 언젠가는 암호를 찾을 수 있게 되는 식이다. 
+//다만 정말로 그냥 무식하게 때려박는 건 아니고, 숫자만 섞어서 대입해보기 한번, 
+//로마자만 섞어서 대입해보기 한번 이런식으로 하다가 안되면 나머지를 순차적으로 하는 식으로 
+//특정 규칙에 따라 우선순위를 두고 하기도 한다.
+//반복문은 뽑아야하는 갯수에 맞춰 늘어난다.
