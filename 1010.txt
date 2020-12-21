@@ -1,0 +1,25 @@
+import java.util.Scanner;
+
+public class Main1010 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int T = sc.nextInt(); //테스트케이스 갯수
+		int[] arr = new int[T];
+		for(int i = 0; i<T; i++) {
+			int N = sc.nextInt(); 
+			int M = sc.nextInt();
+		
+			int result = 1;
+			for(int j = M; j>N; j-- ) {
+				result *= j;
+				result /= M-j+1;
+			}
+			arr[i] = result;
+		}
+		for(int i = 0; i<T; i++) {
+			System.out.println(arr[i]);			
+		}
+	}
+
+}
