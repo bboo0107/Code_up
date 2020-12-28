@@ -1,0 +1,30 @@
+import java.util.Scanner;
+
+public class Main1157 {
+
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+		String word = sc.nextLine().toUpperCase(); //모든 문자를 대문자로 바꿔버림
+		int[] arr = new int[26];
+		int max = 0;
+		char result = '?';
+		
+		for(int i = 0; i<word.length(); i++) { //문자를 하나씩 뽑아서 배열에 넣어주고 갯수를 센다.
+			int cnt = word.charAt(i)-'A'; //arr[0]이 A arr[1]이 B 이런식으로 넣을거기 때문에 
+			arr[cnt]++;
+		}
+		
+		for(int i = 0; i<arr.length;i++) { //가장 많이 사용된 알파벳 구하기			
+			if(max<arr[i]) {
+				max = arr[i];
+				result = (char)(i+65);
+			}else if(max==arr[i]) {
+				result = '?';
+			}
+		}
+		
+		System.out.println(result);
+	}
+
+}
