@@ -1,0 +1,82 @@
+package study.java.baekjoon;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Main1929 {
+
+	public static void main(String[] args) {
+		
+		/* 시간초과
+		
+		Scanner sc = new Scanner(System.in);
+		int M = sc.nextInt();
+		int N = sc.nextInt();
+		
+		for(int i = 0; i<N; i++) {
+			int[] arr = new int[N];
+			arr[i] = i;
+			
+			
+			int cnt = 0;
+			for(int j = 2; j<=N; j++) {
+				if(i%j==0) {
+					cnt++;
+				}
+			}
+			if(cnt==1 && i>=M) {
+				System.out.println(arr[i]);
+			}
+		}
+		*/
+
+		
+		/*  시간초과
+		Scanner sc = new Scanner(System.in);
+		int M = sc.nextInt();
+		int N = sc.nextInt();
+		int cnt = 0;
+		
+		for(int i = M; i<=N; i++) {
+			for(int j = 2; j<i; j++) {
+				if(i%j==0) {
+					cnt++;
+				}
+			}
+			if(cnt==0 & i !=0) {
+				System.out.println(i);
+			}
+			cnt = 0;
+		}
+		 */
+		
+		
+		//https://ko.wikipedia.org/wiki/%EC%97%90%EB%9D%BC%ED%86%A0%EC%8A%A4%ED%85%8C%EB%84%A4%EC%8A%A4%EC%9D%98_%EC%B2%B4
+		//아리스토테네스의 체
+		Scanner sc = new Scanner(System.in);
+		int M = sc.nextInt();
+		int N = sc.nextInt();
+		
+		ArrayList<Boolean> primeList;
+		primeList = new ArrayList<Boolean>(N+1);
+		primeList.add(false);
+		primeList.add(false);
+		
+		for(int i = 2; i<=N; i++) {
+			primeList.add(i,true);
+		}
+		for(int i = 2; (i*i)<=N; i++) {
+			if(primeList.get(i)) {
+				for(int j = i+i; j<=N; j+=i) {
+					primeList.set(j,false);
+				}
+			}				
+		}
+		for(int i = M; i<=N; i++) {
+			if(primeList.get(i)) {
+				System.out.println(i);
+			}
+		}
+		
+	}
+}
