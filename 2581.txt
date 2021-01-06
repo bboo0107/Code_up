@@ -1,0 +1,79 @@
+package study.java.baekjoon;
+
+import java.util.Scanner;
+
+public class Main2581 {
+
+	public static boolean prime[];
+	public static void main(String[] args) {
+
+		/*
+		Scanner sc = new Scanner(System.in);
+		int M = sc.nextInt();
+		int N = sc.nextInt();
+		int sum = 0;
+		int cnt = 0;
+		int min = N;
+		for(int i = M; i<=N; i++) {
+			for(int j = 1; j<i; j++) {
+				if(i%j==0) {
+					cnt++;
+				}
+				
+			}
+			if(cnt==2) {
+				sum += i ;
+				if(min>i) {
+					min = i;
+				}
+			}
+		}
+		if(sum==0 ) {
+			System.out.println(-1);
+		}else {
+			System.out.println(sum);	
+			System.out.println(min);
+		}
+		*/
+		
+		Scanner sc = new Scanner(System.in);
+		int M = sc.nextInt();
+		int N = sc.nextInt();
+		prime = new boolean[N+1];
+		get_prime();
+		
+		int sum = 0;
+		int min = N;
+		for(int i = M; i<=N; i++) {
+			if(prime[i]==false) { //false가 소수
+				sum+=i;
+				if(min>i) {
+					min=i;
+				}
+			}
+		}
+		if(sum==0) {
+			System.out.println(-1);
+		}else {
+			System.out.println(sum);
+			System.out.println(min);
+		}
+	
+	}
+
+	private static void get_prime() { //에라토스테네스의 체
+		prime[0] = true;
+		prime[1] = true;
+		
+		for(int i = 2; i<=Math.sqrt(prime.length); i++) {
+			for(int j = i*i; j<prime.length; j+=i) {
+				prime[j] = true;
+			}
+		}
+
+	}
+
+}
+
+//https://st-lab.tistory.com/81
+//https://st-lab.tistory.com/83
