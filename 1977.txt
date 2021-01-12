@@ -1,0 +1,36 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Main1977 {
+
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+		int M = sc.nextInt();
+		int N = sc.nextInt();
+		int sum = 0;
+		ArrayList<Integer> list = new ArrayList<Integer>();
+		
+		for(int i = 1; i<=100; i++) {		
+				int result = i*i;
+				if(M<=result&&result<=N) {
+					list.add(result);
+				}				
+		}
+		
+		for(int i = 0; i<list.size(); i++) {			
+			sum += list.get(i);						
+		}				
+		
+		if(list.size()==0) {
+			System.out.println(-1);		
+		}else {
+			System.out.println(sum);
+			System.out.println(list.get(0));
+	}
+		
+		
+		
+	}
+
+}
