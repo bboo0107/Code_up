@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+public class Main14720 {
+
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+		int N = sc.nextInt();
+		int[] milk = {0,1,2};
+		int milk_index = 0;
+		int[] store = new int[N];
+		int cnt = 0;
+		
+		for(int i = 0; i<N; i++) {
+			store[i] = sc.nextInt();
+		}
+		for(int i = 0; i<store.length; i++) {
+				if(store[i] == milk[milk_index%3]) {
+					cnt++;
+					milk_index++;
+			}
+		}
+		System.out.println(cnt);
+	}
+
+}
